@@ -1,0 +1,8 @@
+# Ignore huge video files now streamed via Google Drive
+img/Novell & Jihaii/lv_0_20251114065149.mp4
+img/Novell & Jihaii/my kisah.mp4
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+*.tmp

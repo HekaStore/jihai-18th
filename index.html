@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Jihaikuh Tersayang 🎂💖 | Dari Novell</title>
+  <meta name="description" content="Website kejutan ulang tahun spesial dan penuh cinta untuk Jihan Farach Muthiah Humam (Jihai / Bubub) dari Novell.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+</head>
+<body class="gate-active">
+
+  <!-- Background Animated Canvas (Hearts & Sparkles) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ==================== GRAND SURPRISE UNBOXING GATE ==================== -->
+  <div class="surprise-gate" id="surprise-gate" role="dialog" aria-modal="true" aria-label="Gerbang Kejutan Ulang Tahun">
+    <div class="gate-backdrop"></div>
+    <div class="gate-stars">
+      <span class="gate-star gs-1">✦</span>
+      <span class="gate-star gs-2">★</span>
+      <span class="gate-star gs-3">✦</span>
+      <span class="gate-star gs-4">★</span>
+      <span class="gate-star gs-5">✦</span>
+      <span class="gate-star gs-6">★</span>
+    </div>
+
+    <div class="gate-content">
+      <div class="gate-top-badge">
+        <span class="badge-sparkle">✨</span>
+        <span>Hari Spesial Ulang Tahun ke-18 Jihai</span>
+        <span class="badge-sparkle">✨</span>
+      </div>
+
+      <h1 class="gate-headline">
+        Selamat Ulang Tahun ke-18, Jihaikuh 💙
+      </h1>
+
+      <p class="gate-message">
+        Ada kejutan manis spesial ke-18 untuk Luna 🌙
+      </p>
+
+      <!-- 3D Interactive Gift Box -->
+      <div class="gate-gift-wrapper" id="gate-gift-box" title="Ketuk kado untuk membuka!">
+        <div class="gift-ambient-glow"></div>
+
+        <div class="gift-3d-box">
+          <!-- Lid with Bow -->
+          <div class="gift-3d-lid" id="gift-3d-lid">
+            <div class="gift-3d-bow">
+              <div class="bow-knot">🎀</div>
+            </div>
+            <div class="lid-rim"></div>
+          </div>
+
+          <!-- Body -->
+          <div class="gift-3d-body" id="gift-3d-body">
+            <div class="ribbon-cross-v"></div>
+            <div class="ribbon-cross-h"></div>
+            <!-- Delivery Tag -->
+            <div class="gift-delivery-tag">
+              <div class="tag-body">
+                <span class="tag-name">Untuk: Jihaikuh 🌙 (18th)</span>
+                <span class="tag-sender">Dari: Novell 💖</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Pulsing Tap Button -->
+        <button class="btn-tap-unbox" id="btn-tap-unbox" aria-label="Buka Kado Kejutan ke-18">
+          <span class="btn-gift-icon">🎁</span>
+          <span class="btn-unbox-text">KETUK UNTUK BUKA KADO KE-18</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Music Audio -->
+  <audio id="audio-player" loop preload="auto">
+    <source src="hbdcatsong.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Music Player Bar -->
+  <aside class="music-pill" id="music-pill" aria-label="Pemutar Musik">
+    <div class="vinyl-record" id="vinyl-btn" title="Klik untuk Putar / Jeda Musik">
+      <div class="vinyl-core">🐱</div>
+    </div>
+    <div class="music-info" id="music-toggle-btn">
+      <div class="music-title">HBD Cat Song 🐾</div>
+      <div class="music-status" id="music-status">Klik untuk nyalakan lagu 🎵</div>
+    </div>
+    <div class="sound-wave" id="sound-wave">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <button class="music-ctrl-btn" id="music-play-btn" aria-label="Play/Pause">▶</button>
+  </aside>
+
+  <!-- Sticky Cute Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-heart">💖</span>
+        <span class="brand-text">Novell & Jihai</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#cake-section" class="nav-link">🎂 Tiup Lilin</a>
+        <a href="#letter-section" class="nav-link">💌 Surat Cinta</a>
+        <a href="#gallery-section" class="nav-link">📸 Galeri Kita</a>
+        <a href="#video-section" class="nav-link">🎬 Sinema Kita</a>
+        <a href="#coupons-section" class="nav-link">🎟️ Kupon Spesial</a>
+        <a href="#message-section" class="nav-link">💬 Kirim Pesan</a>
+        <a href="#creator-section" class="nav-link">👨‍💻 Dari Novell</a>
+      </nav>
+      <div class="nav-right-actions">
+        <button class="nav-surprise-btn" id="nav-btn-surprise" title="Buka Ulang Kado Kejutan 🎁" aria-label="Buka Ulang Kado">
+          <span class="btn-surprise-icon">🎁</span>
+          <span class="btn-surprise-text">Buka Kado</span>
+        </button>
+        <button class="nav-theme-toggle" id="theme-toggle-btn" title="Ganti Mode Luna Blue 🌙 / Blossom Pink 🌸" aria-label="Ganti Tema">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-text">Mode Luna</span>
+        </button>
+        <div class="nav-badge">
+          <span class="badge-dot"></span> Hari Spesial Luna ke-18 ✨
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-tag">
+        <span class="sparkle-icon">✨</span> 27 Oktober • Ulang Tahun ke-18 Jihai (Luna) <span class="sparkle-icon">✨</span>
+      </div>
+
+      <h1 class="hero-title">
+        Selamat Ulang Tahun ke-18,<br>
+        <span class="highlight-text">Jihaikuh Tersayang!</span> 🎂💙
+      </h1>
+
+      <p class="hero-subtitle">
+        Untuk <strong>Jihan Farach Muthiah Humam (Luna)</strong> di hari ulang tahunnya yang ke-18, Perempuan yang hadir dalam hidup aku dan bertahan sampai sekarang :> 🥰🌙
+      </p>
+
+      <!-- Grand Hero Spotlight: Big Main Image of Jihan (img/jihai.jpeg) -->
+      <div class="hero-spotlight-wrapper">
+        <!-- Floating Romantic Pill (Left) -->
+        <div class="hero-float-pill pill-left">
+          <span class="pill-emoji">👑</span>
+          <div class="pill-info">
+            <span class="pill-title">The 18th Birthday Queen</span>
+            <span class="pill-sub">Jihan Farach Muthiah Humam</span>
+          </div>
+        </div>
+
+        <!-- The Big Main Focal Card -->
+        <div class="hero-main-card" id="hero-main-card" title="Klik si cantik Jihai untuk kirim cinta! 💖">
+          <div class="card-glow-aura"></div>
+          <div class="card-crown luna-tiara">👑🌙</div>
+          <span class="card-sparkle s1">✨</span>
+          <span class="card-sparkle s2">⭐</span>
+          <span class="card-sparkle s3">✨</span>
+
+          <!-- Fries accessory (Jihai's favorite) -->
+          <div class="hero-accessory acc-fries" title="Favorit Jihai: Kentang Goreng! 🍟">
+            <span class="acc-icon">🍟</span>
+            <span class="acc-tooltip">Kentang Goreng!</span>
+          </div>
+
+          <!-- Alhaitham accessory (Jihai's favorite character) -->
+          <div class="hero-accessory acc-alhaitham" title="Karakter Favorit: Alhaitham Genshin Impact! 🍃">
+            <span class="acc-icon">🍃</span>
+            <span class="acc-tooltip">Alhaitham!</span>
+          </div>
+
+          <div class="hero-main-frame">
+            <img src="img/jihai.jpeg" alt="Jihan Farach Muthiah Humam" class="hero-main-img" id="hero-main-img">
+            <div class="hero-frame-shine"></div>
+            <div class="hero-ribbon-tag">🎀 SWEET 18 • THE BIRTHDAY QUEEN 🎀</div>
+          </div>
+
+          <div class="hero-card-caption">
+            <div class="caption-tag">
+              <span class="heart-pulse">💙</span> Jihan Farach Muthiah Humam
+            </div>
+            <p class="caption-quote">“Senyuman terindah di semesta Novell 🌙✨" </p>
+            <p class="caption-quote">asekkkk</p>
+          </div>
+        </div>
+
+        <!-- Floating Romantic Pill (Right) -->
+        <div class="hero-float-pill pill-right" onclick="triggerHeartBurst(window.innerWidth/2, window.innerHeight/2, '❤️')">
+          <div class="pill-avatar-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="Novell & Jihai" class="pill-avatar">
+          </div>
+          <div class="pill-info">
+            <span class="pill-title">Novell & Bubub 🫶</span>
+            <span class="pill-sub">Selamanya Bersama</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#cake-section" class="btn btn-primary" id="btn-to-cake">
+          <span class="btn-icon">🎂</span> Tiup Lilin Bareng
+        </a>
+        <a href="#letter-section" class="btn btn-secondary" id="btn-to-letter">
+          <span class="btn-icon">💌</span> Baca Surat Novell
+        </a>
+        <a href="#gallery-section" class="btn btn-tertiary" id="btn-to-gallery">
+          <span class="btn-icon">📸</span> Kenangan Kita
+        </a>
+        <a href="#video-section" class="btn btn-secondary" id="btn-to-video">
+          <span class="btn-icon">🎬</span> Tonton Video Kita
+        </a>
+      </div>
+
+      <!-- Love Counter / Sweet Banner -->
+      <div class="sweet-quote-card">
+        <span class="quote-mark">“</span>
+        <p class="quote-text">
+          Home is not just a shelter, but the place where you are. Waiting for you to come home is always the sweetest part of my day.
+        </p>
+        <span class="quote-author">— Dari Novemas untuk Jihan ❤️</span>
+      </div>
+
+      <!-- Luna's Favorite Universe Showcase -->
+      <div class="luna-universe-wrap">
+        <div class="universe-pill-header">
+          <span class="universe-badge">✨ Hal-Hal Favorit Jihaikuh ✨</span>
+          <h2 class="universe-title">Semesta Kecil Luna (Jihai) 🌙</h2>
+        </div>
+
+        <div class="universe-cards-grid">
+          <!-- Card 1: Luna (Bulan) -->
+          <div class="universe-card card-luna-moon" tabindex="0">
+            <div class="u-card-halo"></div>
+            <div class="u-card-icon-box">🌙</div>
+            <div class="u-card-body">
+              <span class="u-tag">Identitas & Impian</span>
+              <h3>Bulan "Luna"</h3>
+              <p>Luna itu yang katakan ke aku, kalau kamu ingin menjadi bulan.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Warna Biru -->
+          <div class="universe-card card-luna-blue" tabindex="0">
+            <div class="u-card-halo"></div>
+            <div class="u-card-icon-box">💙</div>
+            <div class="u-card-body">
+              <span class="u-tag">Warna Favorit</span>
+              <h3>Biru </h3>
+              <p>Aku juga suka warna biru, karena ada 3 warna yang ku sukai biru, hijau dan merah, dan kamu menyukai salah satu dari itu</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Kentang Goreng & Kucing -->
+          <div class="universe-card card-luna-fries" tabindex="0">
+            <div class="u-card-halo"></div>
+            <div class="u-card-icon-box">🍟🐾</div>
+            <div class="u-card-body">
+              <span class="u-tag">Makanan & Hewan Suka</span>
+              <h3>Kentang Goreng & Kucing</h3>
+              <p>Kamu setiap beli beli sepertinya harus ada kentang goreng yah hehe, apalagi kucingg kamu suka bangat pastinya</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Alhaitham Genshin Impact -->
+          <div class="universe-card card-luna-alhaitham" tabindex="0">
+            <div class="u-card-halo"></div>
+            <div class="u-card-icon-box">🍃🎧</div>
+            <div class="u-card-body">
+              <span class="u-tag">Husband Genshin</span>
+              <h3>Alhaitham (Genshin)</h3>
+              <p>Iyadehh ini your bojo, tapi nyata an aku wleeeeee.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BIRTHDAY CAKE SECTION ==================== -->
+    <section class="cake-section" id="cake-section">
+      <div class="section-header">
+        <span class="section-pill">🎂 Tiup Lilin ke-18</span>
+        <h2 class="section-title">Kue Ulang Tahun ke-18 Jihai</h2>
+      </div>
+
+      <div class="cake-container">
+        <!-- Interactive Animated Birthday Cake -->
+        <div class="cake-stage" id="cake-stage">
+          <!-- Sparkles & Stars -->
+          <div class="cake-sparkles">
+            <span class="sparkle s1">✨</span>
+            <span class="sparkle s2">⭐</span>
+            <span class="sparkle s3">✨</span>
+            <span class="sparkle s4">💖</span>
+          </div>
+
+          <!-- Candle -->
+          <div class="candle-wrap" id="candle-wrap" title="Klik untuk tiup lilin!">
+            <div class="candle-flame" id="candle-flame"></div>
+            <div class="candle-smoke" id="candle-smoke"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick">
+              <span class="candle-number-18">18</span>
+            </div>
+          </div>
+
+          <!-- Cake Tiers -->
+          <div class="cake-layer cake-layer-top">
+            <div class="cake-frosting">
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+            </div>
+            <div class="cake-toppings">🍓 🍒 🍓</div>
+          </div>
+          
+          <div class="cake-layer cake-layer-middle">
+            <div class="cake-frosting">
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+              <span class="frosting-drop"></span>
+            </div>
+            <div class="cake-ribbon">💖 SWEET 18 JIHAII 💖</div>
+          </div>
+
+          <div class="cake-layer cake-layer-bottom">
+            <div class="cake-decorations">
+              <span>🌸</span><span>✨</span><span>🍓</span><span>✨</span><span>🌸</span>
+            </div>
+          </div>
+
+          <!-- Cake Plate -->
+          <div class="cake-plate"></div>
+        </div>
+
+        <!-- Cake Controls -->
+        <div class="cake-action-box">
+          <button class="btn btn-cake" id="btn-blow-candle">
+            <span class="btn-icon" id="blow-icon">🌬️</span>
+            <span id="blow-text">Tiup Lilin Ulang Tahun ke-18!</span>
+          </button>
+          <button class="btn btn-outline" id="btn-relight-candle" style="display: none;">
+            🔥 Nyalakan Lilin Lagi
+          </button>
+        </div>
+
+        <!-- Wish Result Card (Hidden until blown) -->
+        <div class="wish-reveal-card" id="wish-reveal-card">
+          <div class="wish-icon">🎉</div>
+          <h3 class="wish-title">Permohonan Ulang Tahun ke-18 Terkirim! ✨</h3>
+          <p class="wish-text">
+            Selamat ulang tahun yang ke-18, Jihai! Di usia 18 tahun yang indah dan penuh berkah ini, semoga semua impian, cita-cita, dan doa baik Jihai dikabulkan oleh Allah SWT. Tetap jadi Jihai yang ceria, ramah, dan selalu jadi tempat ternyaman buat aku pulang. I love you to the moon and back! 🌙💖
+          </p>
+          <div class="wish-confetti-btn-wrap">
+            <button class="btn btn-secondary" id="btn-more-confetti">🎊 Tabur Konfeti Lagi!</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LOVE LETTER SECTION ==================== -->
+    <section class="letter-section" id="letter-section">
+      <div class="section-header">
+        <span class="section-pill">💌 Pesan Tulus Dari Hati</span>
+        <h2 class="section-title">Surat Spesial Dari Novell</h2>
+        <p class="section-desc">Ketuk segel lilin untuk membuka surat 💌</p>
+      </div>
+
+      <div class="envelope-wrapper">
+        <div class="envelope-card" id="envelope-card">
+          <!-- Envelope Flap -->
+          <div class="envelope-flap" id="envelope-flap"></div>
+          
+          <!-- Wax Seal Button -->
+          <div class="wax-seal" id="wax-seal" title="Klik untuk membuka surat">
+            <div class="seal-inner">
+              <span class="seal-heart">❤️</span>
+              <span class="seal-label">BUKA</span>
+            </div>
+          </div>
+
+          <!-- Envelope Pocket Front -->
+          <div class="envelope-pocket"></div>
+
+          <!-- Paper Letter (Slides out when opened) -->
+          <article class="letter-paper" id="letter-paper">
+            <div class="letter-tape"></div>
+            <div class="letter-stamp">
+              <img src="img/ayang.jpg" alt="Stamp" class="stamp-img">
+              <span class="stamp-text">FOR JIHAII</span>
+            </div>
+
+            <div class="letter-header">
+              <span class="letter-date">Untuk: Jihaikuhh Tercinta 💖</span>
+              <span class="letter-city">Dari: Novell (Novemas) ✍️</span>
+            </div>
+
+            <div class="letter-body">
+              <p class="letter-salutation">Jihaii....</p>
+              <p>Selamat Ulang tahun ke-18 yahh, aku hanya bisa ngucapin dari website ini.... makasih yah selama ini kamu nemenin aku dan sayang sama aku.</p>
+
+              <p>Aku berharap kita bisa menggapai tujuan kita masing masing terlebih dahulu dan bertemu dengan kondisi yang sudah siap untuk memujudkan apa yang kita rencanakan bersama (rabi bek kamu wle)</p>
+
+              <p>Meskipun kamu sudah memberikan kebebasan untuk bicara sama kamu, tapi aku memilih untuk memendamnya, seharusnya aku nyatakan lansung ke kamu agar tidak ada rasa ganjal pada diriku... Maaf yahh <code>(*>﹏<*)′</code>.</p>
+              <p>Semoga di usia 18 tahun ini, Jihai dipenuhi limpahan kebahagiaan, kesehatan, kasih sayang, dan semua impian terbaik Jihai tercapai. 💕</p>
+              <p class="letter-highlight">
+                Aku sayang banget sama Jihai. Jadi aku berjuang untuk diriku sendiri dulu untuk masa depan yang lebih baik 🫶
+              </p>
+              <p class="letter-footnote">
+                <em>"I can't define when i look into your eyes, cuz you already my life"</em>
+              </p>
+            </div>
+
+            <div class="letter-footer">
+              <div class="letter-signature">
+                <span>Dengan segenap rasa sayang,</span>
+                <strong class="sig-name">Novell 💌</strong>
+              </div>
+              <div class="letter-close-wrap">
+                <button class="btn btn-sm btn-outline" id="btn-fold-letter">Tutup Surat ✉️</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== POLAROID PHOTO GALLERY SECTION ==================== -->
+    <section class="gallery-section" id="gallery-section">
+      <div class="section-header">
+        <span class="section-pill">📸 Jejak Cerita</span>
+        <h2 class="section-title">Galeri Foto Kenangan Kita</h2>
+      </div>
+
+      <!-- Roll Film Marquee (Gliding horizontal polaroid stream) -->
+      <div class="marquee-wrapper" aria-label="Nostalgia Roll Film">
+        <div class="marquee-track">
+          <!-- Slide items (repeated for continuous smooth loop) -->
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20251117-WA0311.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20251117-WA0311.jpg" alt="Buku Nikah & Cincin" loading="lazy">
+            <span>Buku Nikah 💍</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG_20251109_110935522.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251109_110935522.jpg" alt="Jas & Kebaya Pre-wedding" loading="lazy">
+            <span>Jas & Kebaya ✨</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20260809-WA0045.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260809-WA0045.jpg" alt="Buket Bunga Buat Jihai" loading="lazy">
+            <span>Bunga Cantik 💐</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="Ukur Tinggi Jihai" loading="lazy">
+            <span>Si Mungil 📏</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/ayang.jpg')">
+            <img src="img/ayang.jpg" alt="Senyuman Jihai" loading="lazy">
+            <span>Ayang Tersenyum 🥰</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/1762188033361.png.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/1762188033361.png.jpg" alt="Seragam di Bawah Pohon Rindang" loading="lazy">
+            <span>Putih Abu-Abu 🌳</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20260307-WA0164.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260307-WA0164.jpg" alt="Malam Bambu Kafe" loading="lazy">
+            <span>Malam Hangat 🎋</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/20260412_132512-IMG_STYLE.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/20260412_132512-IMG_STYLE.jpg" alt="Figurine 3D" loading="lazy">
+            <span>3D Figurine 🤵👰</span>
+          </div>
+          <!-- Repeat duplicates for seamless infinite gliding -->
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20251117-WA0311.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20251117-WA0311.jpg" alt="Buku Nikah & Cincin" loading="lazy">
+            <span>Buku Nikah 💍</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG_20251109_110935522.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251109_110935522.jpg" alt="Jas & Kebaya Pre-wedding" loading="lazy">
+            <span>Jas & Kebaya ✨</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20260809-WA0045.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260809-WA0045.jpg" alt="Buket Bunga Buat Jihai" loading="lazy">
+            <span>Bunga Cantik 💐</span>
+          </div>
+          <div class="marquee-item" onclick="openLightboxBySrc('img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg')">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="Ukur Tinggi Jihai" loading="lazy">
+            <span>Si Mungil 📏</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs with Count Badges -->
+      <div class="gallery-filters" role="tablist">
+        <button class="filter-tab active" data-filter="all">🌟 Semua Foto <span class="tab-badge">23</span></button>
+        <button class="filter-tab" data-filter="married">💍 Akad & Sah <span class="tab-badge">2</span></button>
+        <button class="filter-tab" data-filter="sweet">💑 Kencan Manis <span class="tab-badge">9</span></button>
+        <button class="filter-tab" data-filter="school">🏫 Masa SMA <span class="tab-badge">8</span></button>
+        <button class="filter-tab" data-filter="creative">🎨 Gemas & Unik <span class="tab-badge">4</span></button>
+      </div>
+
+      <!-- Photo Counter Status -->
+      <div class="gallery-status-bar">
+        <span id="gallery-counter-text">Menampilkan 12 dari 23 foto kenangan manis ✨</span>
+      </div>
+
+      <!-- Polaroid Cards Grid (Neat 4-col desktop, 3-col tablet, 2-col mobile) -->
+      <div class="polaroid-grid" id="polaroid-grid">
+
+        <!-- Photo 1: Buku Nikah Cincin (Married) -->
+        <div class="polaroid-card" data-category="married" data-tilt="-2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20251117-WA0311.jpg" alt="Novell dan Jihan menunjukkan Buku Nikah dan Cincin" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Hari Resmi & Bahagia 💍✨</p>
+            <p class="caption-date">17 November 2025 • Sah Menikah!</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">888</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 2: Jas & Kebaya Anggun (Married) -->
+        <div class="polaroid-card" data-category="married" data-tilt="2">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251109_110935522.jpg" alt="Novell dan Jihan mengenakan jas dan kebaya" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Menuju Hari Bahagia ✨🤵👰</p>
+            <p class="caption-date">9 November 2025 • Jas & Kebaya Anggun</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">845</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 3: Ayang Tersayang (Sweet) -->
+        <div class="polaroid-card" data-category="sweet" data-tilt="-1">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/ayang.jpg" alt="Potret Senyum Manis Jihan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Senyuman Manis Ayang 🥰🌸</p>
+            <p class="caption-date">Potret Cantik • Kesayangan Novell</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">999</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 4: Buket Bunga Ungu (Sweet) -->
+        <div class="polaroid-card" data-category="sweet" data-tilt="2">
+          <div class="washi-tape tape-green"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260809-WA0045.jpg" alt="Jihan dan Novell bersama buket bunga ungu rajut" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Buket Bunga Untuk Ayang 💐💜</p>
+            <p class="caption-date">9 Agustus 2026 • Mengintip Manis</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">612</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 5: Si Mungil & Si Jangkung (Sweet) -->
+        <div class="polaroid-card" data-category="sweet" data-tilt="-2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="Novell dan Jihan saling menatap dan mengukur tinggi badan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Si Mungil & Si Jangkung 👀📏</p>
+            <p class="caption-date">8 Agustus 2026 • Saling Tatap & Ukur Tinggi</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">730</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 6: Sandaran Paling Nyaman (Sweet) -->
+        <div class="polaroid-card" data-category="sweet" data-tilt="1">
+          <div class="washi-tape tape-blue"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0081.jpg" alt="Jihan bersandar di bahu Novell" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Sandaran Paling Nyaman 🤍</p>
+            <p class="caption-date">8 Agustus 2026 • Lembut di Bahu</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">685</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 7: Di Bawah Rindangnya SMASA (School) -->
+        <div class="polaroid-card" data-category="school" data-tilt="-1">
+          <div class="washi-tape tape-green"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/1762188033361.png.jpg" alt="Novell dan Jihan di bawah pohon rindang SMASA berpose dua jari" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Di Bawah Rindangnya SMASA 🌳✌️</p>
+            <p class="caption-date">Putih Abu-Abu • Kompak Dua Jari</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">756</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 8: Sudut Rumput Hijau (School) -->
+        <div class="polaroid-card" data-category="school" data-tilt="2">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/1760143014724.png.jpg" alt="0.5x selfie di lapangan hijau SMASA" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Sudut Rumput Hijau 🍃0.5x</p>
+            <p class="caption-date">Masa SMA • Jihai Nunjuk Pipi Gemas</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">692</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 9: Hangatnya Senja Sekolah (School) -->
+        <div class="polaroid-card" data-category="school" data-tilt="-2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/1759406410648.png.jpg" alt="Novell dan Jihan saat senja dengan lurik dan kacamata" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Hangatnya Senja Sekolah 🌅</p>
+            <p class="caption-date">Golden Hour • Sentuhan Lurik & Kacamata</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">640</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 10: Papan Tulis & Cerita Kita (School) -->
+        <div class="polaroid-card" data-category="school" data-tilt="1">
+          <div class="washi-tape tape-blue"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/1761456486952.png.jpg" alt="Di depan papan tulis kelas 13 Agustus 2025" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Papan Tulis & Cerita Kita 📝</p>
+            <p class="caption-date">13 Agustus 2025 • Iseng Ukur Tinggi</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">580</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 11: Serial Seragam Biru (School) -->
+        <div class="polaroid-card" data-category="school" data-tilt="-1">
+          <div class="washi-tape tape-green"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251125_095813443_HDR-COLLAGE.jpg" alt="Kolase 3 foto seragam biru Novell dan Jihan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Serial Seragam Biru 💙📸</p>
+            <p class="caption-date">25 November 2025 • Tiga Momen Manis</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">710</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 12: Kafe Bambu Meja Hangat (Sweet) -->
+        <div class="polaroid-card" data-category="sweet" data-tilt="2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260307-WA0164.jpg" alt="Novell dan Jihan di meja kafe berlatar bambu" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Malam Syahdu Kafe Bambu 🎋✨</p>
+            <p class="caption-date">7 Maret 2026 • Meja Berdua & Lampu Hangat</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">640</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- ==================== EXTRA PHOTOS (Revealed on click) ==================== -->
+
+        <!-- Photo 13: Kafe Bambu Berdiri Tunjuk Ayang (Sweet, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="sweet" data-tilt="-2">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260307-WA0169.jpg" alt="Novell menunjuk Jihan yang tersenyum di depan bambu rimbun" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Tunjuk Si Kesayangan 👉💚</p>
+            <p class="caption-date">7 Maret 2026 • Dinding Bambu Estetik</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">580</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 14: Juara 1 Estafet (Sweet, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="sweet" data-tilt="2">
+          <div class="washi-tape tape-blue"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260131-WA0120.jpg" alt="Novell memegang kotak juara 1 estafet di atas kepala bersama Jihan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Juara 1 Estafet! 🏆📦</p>
+            <p class="caption-date">31 Januari 2026 • Hadiah di Atas Kepala</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">655</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 15: Jalan Sore di Taman (Sweet, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="sweet" data-tilt="-1">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260208-WA0019.jpg" alt="Novell dan Jihan berjalan sore di taman kota" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Jalan Sore Berdua 🍃⛅</p>
+            <p class="caption-date">8 Februari 2026 • Senyum Adem di Taman</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">560</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 16: Hoodie Hangat Berdua (Sweet, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="sweet" data-tilt="1">
+          <div class="washi-tape tape-green"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20260803_123140100.jpg" alt="Jihan selfie dengan hoodie dan Novell tersenyum di pintu" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Santai Berdua di Pintu ✌️🚪</p>
+            <p class="caption-date">3 Agustus 2026 • Hoodie Hangat & Pose Damai</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">520</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 17: Hari Batik SMASA (School, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="school" data-tilt="-2">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/1762187993735.png.jpg" alt="Novell dan Jihan mengenakan seragam batik di ruang kelas" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Hari Batik SMASA 🌟✨</p>
+            <p class="caption-date">Batik Kebanggaan • Senyum Cerah Berdua</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">670</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 18: Langkah Awal di Sekolah (School, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="school" data-tilt="2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/nohek.jpg" alt="Novell dan Jihan di lingkungan sekolah" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Langkah Awal di Sekolah 🎒</p>
+            <p class="caption-date">Kenangan SMASA • Hari-Hari Indah</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">610</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 19: Bingkai Si Manis (School, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="school" data-tilt="-1">
+          <div class="washi-tape tape-blue"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260223_080337998~2.jpg" alt="Jihan dalam bingkai tangan tersenyum manis" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Bingkai Si Manis ✌️🖼️</p>
+            <p class="caption-date">23 Februari 2026 • Pose Dua Jari & Pin ECB</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">595</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 20: Chibi Lucu Kita (Creative, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="creative" data-tilt="1">
+          <div class="washi-tape tape-pink"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/jika.jpg" alt="Ilustrasi Chibi Novell dan Jihan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Chibi Lucu Kita 🎨🐾</p>
+            <p class="caption-date">Ilustrasi Cinta • Hangat & Gemas</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">810</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 21: 3D Figurine Novell & Jihan (Creative, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="creative" data-tilt="-2">
+          <div class="washi-tape tape-blue"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/20260412_132512-IMG_STYLE.jpg" alt="Figurin 3D custom Novell dan Jihan" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Miniatur Cinta 3D 🤵👰</p>
+            <p class="caption-date">12 April 2026 • Figurin Kenangan Indah</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">620</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 22: Transformasi Waktu Collage (Creative, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="creative" data-tilt="2">
+          <div class="washi-tape tape-yellow"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251021_140854748-COLLAGE.jpg" alt="Kolase polaroid perbandingan Oktober 2025 dan Agustus 2026" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Transformasi Waktu 📌⏳</p>
+            <p class="caption-date">Okt 2025 - Agu 2026 • Tumbuh Bersama</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">730</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+        <!-- Photo 23: Aesthetic Cinematic Poster (Creative, Extra) -->
+        <div class="polaroid-card extra-photo" data-category="creative" data-tilt="-1">
+          <div class="washi-tape tape-green"></div>
+          <div class="polaroid-img-wrap">
+            <img src="img/Novell%20%26%20Jihaii/jihan_farach_muthiah_humam_mybububjihai_9.1.2.jpg" alt="Poster editan sinematik Jihan Farach" loading="lazy">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-title">Cinematic Poster Bubub 🎞️🌟</p>
+            <p class="caption-date">"Waiting for you to come home..."</p>
+          </div>
+          <div class="polaroid-actions">
+            <button class="btn-like-photo"><span class="like-heart">❤️</span> <span class="like-count">777</span></button>
+            <button class="btn-view-photo">🔍 Perbesar</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Load More / Expand Photos Button -->
+      <div class="gallery-load-more-wrap">
+        <button class="btn btn-primary" id="btn-toggle-gallery">
+          <span class="btn-icon">🌸</span>
+          <span id="toggle-gallery-text">Tampilkan Semua Foto (23 Momen Indah) ✨</span>
+        </button>
+      </div>
+        </section>
+
+    <!-- ==================== VIDEO CINEMA & REELS SECTION ==================== -->
+    <section class="video-section" id="video-section">
+      <div class="section-header">
+        <span class="section-pill">🎬 Sinema Kenangan</span>
+        <h2 class="section-title">Video Momen Manis Berdua</h2>
+      </div>
+
+      <!-- Cinema Theater Feature Player -->
+      <div class="theater-container">
+        <div class="theater-screen-box">
+          <div class="theater-ambient-glow" id="theater-ambient-glow"></div>
+          
+          <div class="theater-screen-header">
+            <div class="theater-live-badge">
+              <span class="live-dot"></span> NOW SHOWING IN CINEMA
+            </div>
+            <div class="theater-now-title" id="theater-now-title">
+              🌟 My Kisah — Cerita Manis Kita
+            </div>
+            <div class="theater-now-meta" id="theater-now-meta">
+              ⏱️ 0:34 • Full HD • Kompilasi Spesial
+            </div>
+          </div>
+
+          <div class="theater-video-wrapper">
+            <!-- Google Drive Cloud Stream Player (Default for High-Res Movies) -->
+            <iframe id="theater-iframe-player" class="theater-player-frame" src="https://drive.google.com/file/d/1g7Ji8hySSc5o1oElnAs3HtW1Da1luNiv/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+            <!-- Local HTML5 Video Player (Used when switching to local video clips) -->
+            <video id="theater-main-player" class="theater-player-media" controls preload="none" playsinline style="display: none;">
+              <source id="theater-video-source" src="" type="video/mp4">
+              Browser kamu belum mendukung tag video HTML5.
+            </video>
+          </div>
+
+          <div class="theater-footer-bar">
+            <div class="theater-footer-quote" id="theater-footer-quote">
+              “Kompilasi momen terindah yang dirangkai khusus untuk merayakan hari ulang tahunmu, cintaku.” 🌸
+            </div>
+            <div class="theater-footer-actions">
+              <a href="https://drive.google.com/file/d/1g7Ji8hySSc5o1oElnAs3HtW1Da1luNiv/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light" id="btn-theater-external">
+                <span class="btn-icon">🚀</span> Buka di Drive
+              </a>
+              <button class="btn btn-sm btn-outline-light" id="btn-theater-restart">⏮️ Putar Ulang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Category Filter Tabs -->
+      <div class="video-filter-bar">
+        <button class="video-filter-tab active" data-vfilter="all">🎬 Semua Video (9)</button>
+        <button class="video-filter-tab" data-vfilter="highlight">🌟 Kisah Utama & Sinema</button>
+        <button class="video-filter-tab" data-vfilter="reels">📱 Reels & TikTok</button>
+        <button class="video-filter-tab" data-vfilter="sweet">🥰 Gemas & Canda</button>
+      </div>
+
+      <!-- Video Cards Grid -->
+      <div class="video-grid" id="video-grid">
+
+        <!-- Video Special: Video Ucapan HBD Dari Novell (Cloud Google Drive) -->
+        <div class="video-card video-card-special" data-vcategory="highlight">
+          <div class="video-card-badge badge-gold">⭐ Spesial Ultah ke-18 Novell</div>
+          <div class="video-preview-wrap">
+            <img src="img/WIN_20261027_19_33_03_Pro.jpg" alt="Video Ucapan HBD Dari Novell" class="card-video-poster" loading="lazy">
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">🎬 Video Ucapan</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Video Ucapan Selamat Ulang Tahun dari Novell 🎥💙</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="drive" data-drive-embed="https://drive.google.com/file/d/1Rm-6dvc7cpQpTZD64BUVl3Uw0_ZodkJg/preview" data-drive-link="https://drive.google.com/file/d/1Rm-6dvc7cpQpTZD64BUVl3Uw0_ZodkJg/view?usp=sharing" data-title="🎥 Video Ucapan Selamat Ulang Tahun dari Novell" data-meta="⭐ Ulang Tahun ke-18 • Google Drive Stream • Spesial Dari Novell" data-quote="“Video ucapan dan doa tulus dari Novell yang dibuat khusus untuk merayakan hari bahagiamu, Jihaikuh.” 💙🎂">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 1: My Kisah (Cloud Google Drive) -->
+        <div class="video-card" data-vcategory="highlight">
+          <div class="video-card-badge badge-gold">🌟 Google Drive Cloud</div>
+          <div class="video-preview-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="My Kisah Thumbnail" class="card-video-poster" loading="lazy">
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:34</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">My Kisah — Cerita Manis Kita 🎬</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="drive" data-drive-embed="https://drive.google.com/file/d/1g7Ji8hySSc5o1oElnAs3HtW1Da1luNiv/preview" data-drive-link="https://drive.google.com/file/d/1g7Ji8hySSc5o1oElnAs3HtW1Da1luNiv/view?usp=sharing" data-title="🌟 My Kisah — Cerita Manis Kita" data-meta="⏱️ 0:34 • Google Drive Stream • Full HD" data-quote="“Momen terindah yang dirangkai khusus untuk merayakan hari ulang tahunmu, cintaku.” 🌸">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 2: Dokumenter 7 Menit (Cloud Google Drive) -->
+        <div class="video-card" data-vcategory="highlight">
+          <div class="video-card-badge badge-purple">🎬 Dokumenter 7 Menit (Cloud)</div>
+          <div class="video-preview-wrap">
+            <img src="img/Novell%20%26%20Jihaii/IMG_20251125_095813443_HDR-COLLAGE.jpg" alt="Dokumenter Thumbnail" class="card-video-poster" loading="lazy">
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 7:43</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Dokumenter 7 Menit Perjalanan Cinta 🎞️</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="drive" data-drive-embed="https://drive.google.com/file/d/1XvkPj3261QKkFsnXGaGGyOEOkpL0U0hV/preview" data-drive-link="https://drive.google.com/file/d/1XvkPj3261QKkFsnXGaGGyOEOkpL0U0hV/view?usp=sharing" data-title="🎞️ Dokumenter 7 Menit Perjalanan Cinta" data-meta="⏱️ 7:43 • Google Drive Stream • Full Movie" data-quote="“Perjalanan kisah kita, setiap detiknya penuh memori berharga yang tak tergantikan.” 💖">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 3: Vibe Malam Kafe Bambu (Reels) -->
+        <div class="video-card" data-vcategory="reels">
+          <div class="video-card-badge badge-rose">📱 Reels 9:16</div>
+          <div class="video-preview-wrap vertical-aspect">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/lv_7550902317139152189_20260307233229.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:26</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Vibe Malam Spesial 7 Maret 🌙✨</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/lv_7550902317139152189_20260307233229.mp4" data-title="🌙 Vibe Malam Spesial 7 Maret" data-meta="⏱️ 0:26 • Reels Vertical • Kafe Bambu" data-quote="“Malam syahdu di kafe bambu, senyummu di bawah temaram lampu bikin hatiku luluh.” 🎋✨">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 4: Reel TikTok Romantis (Reels) -->
+        <div class="video-card" data-vcategory="reels">
+          <div class="video-card-badge badge-pink">🎵 Sound Romantis</div>
+          <div class="video-preview-wrap vertical-aspect">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/7714d76c94b62340488d13f0b6b7b0f6.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:18</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Reel TikTok Romantis Paling Manis 🎶💖</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/7714d76c94b62340488d13f0b6b7b0f6.mp4" data-title="🎶 Reel TikTok Romantis Paling Manis" data-meta="⏱️ 0:18 • Vertical HD • Super Cute" data-quote="“Alunan musik dan senyumanmu yang bikin candu, selalu bikin kangen.” 🥰">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 5: Highlight Kencan Malam (Highlight) -->
+        <div class="video-card" data-vcategory="highlight">
+          <div class="video-card-badge badge-gold">🎋 Dinner Date</div>
+          <div class="video-preview-wrap">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/VID_20260307_201551563_HL.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:15</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Highlight Kencan & Gelak Tawa 🍽️❤️</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/VID_20260307_201551563_HL.mp4" data-title="🍽️ Highlight Kencan & Gelak Tawa" data-meta="⏱️ 0:15 • Full HD • 7 Maret 2026" data-quote="“Momen candid penuh tawa saat kita dinner berdua, kehangatan sederhana yang paling berharga.” 💫">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 6: Kenangan Seragam SMA (Highlight) -->
+        <div class="video-card" data-vcategory="highlight">
+          <div class="video-card-badge badge-blue">🏫 Masa Sekolah</div>
+          <div class="video-preview-wrap">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/VID_20251028_144357843.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:39</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Masa Sekolah Paling Berkesan 🏫💙</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/VID_20251028_144357843.mp4" data-title="🏫 Masa Sekolah Paling Berkesan" data-meta="⏱️ 0:39 • Full HD • 28 Okt 2025" data-quote="“Kenangan seru berseragam sekolah saat kisah kita bermula dan tumbuh jadi seindah sekarang.” 💙✨">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 7: Montage Estetik 24 Maret (Reels) -->
+        <div class="video-card" data-vcategory="reels">
+          <div class="video-card-badge badge-purple">🎨 Montage Square</div>
+          <div class="video-preview-wrap square-aspect">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/lv_7619276758889565456_20260324171452.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:18</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Montage Estetik 24 Maret 🌸📐</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/lv_7619276758889565456_20260324171452.mp4" data-title="🌸 Montage Estetik 24 Maret" data-meta="⏱️ 0:18 • Square 1:1 • Estetik" data-quote="“Potongan-potongan estetika kenangan kita dengan perpaduan warna dan senyum manismu.” 🌷">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 8: Momen Gemas & Manja (Sweet) -->
+        <div class="video-card" data-vcategory="sweet">
+          <div class="video-card-badge badge-rose">🥰 Super Gemas</div>
+          <div class="video-preview-wrap vertical-aspect">
+            <video class="card-video-el" preload="none" playsinline muted loop>
+              <source src="img/Novell%20%26%20Jihaii/VID-20260321-WA0051.mp4" type="video/mp4">
+            </video>
+            <div class="video-play-overlay">
+              <span class="play-circle-btn">▶</span>
+            </div>
+            <span class="video-duration-pill">⏱️ 0:35</span>
+          </div>
+          <div class="video-card-content">
+            <h3 class="video-card-title">Momen Gemas & Manja Berdua 🐾❤️</h3>
+            <div class="video-card-actions">
+              <button class="btn-play-card" data-type="local" data-src="img/Novell & Jihaii/VID-20260321-WA0051.mp4" data-title="🐾 Momen Gemas & Manja Berdua" data-meta="⏱️ 0:35 • WhatsApp Clip • Paling Lucu" data-quote="“Tingkah lucu dan manja Jihai yang selalu sukses bikin hati Novell meleleh setiap hari.” 💖">
+                <span class="btn-icon">▶</span> Putar Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE REASONS & LOVE METER ==================== -->
+    <section class="interactive-section">
+      <div class="section-header">
+        <span class="section-pill">💖 Dari Hati Novell</span>
+        <h2 class="section-title">Alasan Novell Sayang Jihai</h2>
+      </div>
+
+      <!-- Flip Cards Container -->
+      <div class="flip-cards-grid">
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">😊</span>
+              <h3>Senyuman Jihai</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Jihai lek senyum bikin aku salting jujur, aku pengen remas your pipi hehe :D</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🌟</span>
+              <h3>Selalu Semangatin</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Selalu dukung aku ketika berada di titik terendah... makasih ya menerima kekurangan ku ini</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🥺</span>
+              <h3>Hati yang Pemaaf</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Novell kalau buat salah, Jihai Nasehatin secara lembut dan sabar lop lop</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🐱</span>
+              <h3>Tingkah Gemasnya</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Pipi kamu, senyum kamu, mata kamu aku sukaaa jihai gemass </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🍨</span>
+              <h3>Partner Segala Hal</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Jihai suka banget dengerin aku cerita hehe... sukaaaa 🍨</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🫶</span>
+              <h3>Karena Kamu Adalah Kamu</h3>
+              <p class="card-hint">Klik ✨</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Aku sukaa dirimu yang apa adanya :3 🫶</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Love Meter Machine -->
+      <div class="love-meter-box">
+        <div class="meter-header">
+          <span class="meter-icon">💓</span>
+          <h3>Tingkat Kesayangan Novell ke Jihai</h3>
+        </div>
+
+        <div class="meter-track">
+          <div class="meter-fill" id="meter-fill">
+            <span class="meter-indicator" id="meter-indicator">0%</span>
+          </div>
+        </div>
+
+        <div class="meter-action">
+          <button class="btn btn-primary" id="btn-calc-love">
+            🚀 Ukur Sekarang!
+          </button>
+        </div>
+
+        <div class="meter-verdict" id="meter-verdict">
+          <span class="verdict-emoji">🎉</span>
+          <p class="verdict-text">Hasil: <strong>ERROR! 9999999%</strong> - Mesinnya rusak wes... Novell sayang banget sama kamu :3 ❤️🚀</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BIRTHDAY COUPONS SECTION ==================== -->
+    <section class="coupons-section" id="coupons-section">
+      <div class="section-header">
+        <span class="section-pill">🎟️ Hadiah Kupon</span>
+        <h2 class="section-title">Kupon Ulang Tahun Jihai</h2>
+      </div>
+
+      <div class="coupons-grid">
+        <!-- Coupon 1 -->
+        <div class="coupon-card" id="coupon-1">
+          <div class="coupon-notch-top"></div>
+          <div class="coupon-badge">VOUCHER 01</div>
+          <div class="coupon-icon">😇</div>
+          <h3 class="coupon-title">Novell nurut jika dinasehati :D</h3>
+          <div class="coupon-footer">
+            <span class="coupon-expiry">Berlaku Selamanya ✨</span>
+            <button class="btn-claim-coupon" data-coupon="Novell nurut jika dinasehati :D">Klaim Kupon 🪄</button>
+          </div>
+          <div class="stamp-claimed">TERKLAIM ✅</div>
+        </div>
+
+        <!-- Coupon 2 -->
+        <div class="coupon-card" id="coupon-2">
+          <div class="coupon-notch-top"></div>
+          <div class="coupon-badge">VOUCHER 02</div>
+          <div class="coupon-icon">🍦</div>
+          <h3 class="coupon-title">Traktir Makanan Kesukaan</h3>
+          <p class="coupon-desc">Bebas pilih makanan favorit apa saja jika sudah menikah wkwkwkw, dibelikan Novell semuaaaaa!</p>
+          <div class="coupon-footer">
+            <span class="coupon-expiry">Kapanpun Mau 😋</span>
+            <button class="btn-claim-coupon" data-coupon="Traktir Makanan Kesukaan">Klaim Kupon 🪄</button>
+          </div>
+          <div class="stamp-claimed">TERKLAIM ✅</div>
+        </div>
+
+        <!-- Coupon 3 -->
+        <div class="coupon-card" id="coupon-3">
+          <div class="coupon-notch-top"></div>
+          <div class="coupon-badge">VOUCHER 03</div>
+          <div class="coupon-icon">🫂</div>
+          <h3 class="coupon-title">Teman Curhat</h3>
+          <p class="coupon-desc">Jihai ga sendirian Novell ada jika mau ceritaaa :D</p>
+          <div class="coupon-footer">
+            <span class="coupon-expiry">Tanpa Batas 🤍</span>
+            <button class="btn-claim-coupon" data-coupon="Kupon Pelukan Erat & Curhat">Klaim Kupon 🪄</button>
+          </div>
+          <div class="stamp-claimed">TERKLAIM ✅</div>
+        </div>
+
+        <!-- Coupon 4 -->
+        <div class="coupon-card" id="coupon-4">
+          <div class="coupon-notch-top"></div>
+          <div class="coupon-badge">VOUCHER 04</div>
+          <div class="coupon-icon">📸</div>
+          <h3 class="coupon-title">Jalan-Jalan Foto Aesthetic</h3>
+          <p class="coupon-desc">foto foto atau jalan jalan ke alun alun ayo aja novell mahhhhhhhhhhaskjdhaskjdhkajshdas</p>
+          <div class="coupon-footer">
+            <span class="coupon-expiry">Weekend Seru 🌷</span>
+            <button class="btn-claim-coupon" data-coupon="Kupon Jalan-Jalan & Foto Aesthetic">Klaim Kupon 🪄</button>
+          </div>
+          <div class="stamp-claimed">TERKLAIM ✅</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHATSAPP MESSAGE SENDER SECTION ==================== -->
+    <section class="message-section" id="message-section">
+      <div class="section-header">
+        <span class="section-pill">💬 Kotak Balasan Cinta</span>
+        <h2 class="section-title">Kirim Pesan Buat Novell</h2>
+        <p class="section-desc">Kirim pesan manismu langsung ke WhatsApp Novell 💌</p>
+      </div>
+
+      <div class="message-card">
+        <!-- Couple Mini Profile Header -->
+        <div class="msg-couple-banner">
+          <div class="msg-avatar-wrap">
+            <img src="img/ayang.jpg" alt="Jihai" class="msg-av-left">
+            <span class="msg-av-heart">❤️</span>
+            <img src="img/Novell%20%26%20Jihaii/IMG-20260808-WA0077.jpg" alt="Novell" class="msg-av-right">
+          </div>
+          <div class="msg-names">
+            <h4>Dari Jihai untuk Novell</h4>
+            <p>Langsung terkirim ke nomor WhatsApp Novell 📱</p>
+          </div>
+        </div>
+
+        <!-- Quick Tags / Preset Chips -->
+        <div class="quick-chips-wrap">
+          <span class="quick-label">Pilih respon cepat:</span>
+          <div class="chips-list">
+            <button class="chip-btn" data-text="Makasih banyak ya ayang! Hadiah webnya lucu dan manis banget 🥰">Makasih banyak ayang! 🥰</button>
+            <button class="chip-btn" data-text="Ayang Novell, aku mau klaim kupon bedua sama kamu selamanya :3 🫶">Klaim Sehidup Semati 🫶</button>
+            <button class="chip-btn" data-text="Aku kangen banget sama kamu, ayo ketemu dan jalan-jalan! ❤️">Kangen kamu, ayo ketemu! 🌷</button>
+            <button class="chip-btn" data-text="I love you to the moon and back, Novell-ku! 🌙🫶✨">Love you to the moon! 🌙</button>
+          </div>
+        </div>
+
+        <!-- Textarea input -->
+        <div class="input-group">
+          <label for="pesan" class="input-label">Pesan Manis Dari Jihai:</label>
+          <textarea id="pesan" class="text-input" rows="4" placeholder="Ketik pesan manismu untuk Novell di sini yaa sayang... :3"></textarea>
+        </div>
+
+        <!-- Send Button -->
+        <div class="send-action-wrap">
+          <button class="btn btn-whatsapp" id="btn-kirim-wa">
+            <svg class="wa-svg-icon" viewBox="0 0 24 24" width="22" height="22">
+              <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8.01 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 13.99C16.32 13.86 15.12 13.27 14.89 13.19C14.67 13.11 14.5 13.07 14.34 13.31C14.18 13.56 13.71 14.11 13.56 14.27C13.42 14.44 13.27 14.46 13.03 14.34C12.78 14.21 11.99 13.95 11.06 13.12C10.33 12.47 9.84 11.67 9.7 11.42C9.55 11.17 9.68 11.04 9.81 10.92C9.92 10.81 10.06 10.63 10.18 10.48C10.31 10.34 10.35 10.23 10.43 10.07C10.5 9.9 10.47 9.76 10.41 9.64C10.35 9.5 9.86 8.32 9.66 7.83C9.46 7.36 9.25 7.42 9.1 7.42C8.95 7.41 8.79 7.41 8.62 7.41L8.53 7.33Z"/>
+            </svg>
+            <span>Kirim ke WhatsApp Novell</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SPECIAL CREATOR SECTION: FROM NOVELL WITH LOVE ==================== -->
+    <section class="creator-section" id="creator-section">
+      <div class="section-header">
+        <span class="section-pill">💻 The Boy Behind The Code</span>
+        <h2 class="section-title">Dibuat Spesial Oleh Novell Buat Jihai 💙</h2>
+        <p class="section-desc">Di balik baris kode website ini, ada seseorang yang tulus ingin membuat hari ulang tahun ke-18 kamu berkesan ✨</p>
+      </div>
+
+      <div class="creator-card-wrap">
+        <div class="creator-card">
+          <div class="creator-glow-aura"></div>
+          
+          <div class="creator-photo-col">
+            <div class="creator-frame">
+              <img src="img/WIN_20261027_19_33_03_Pro.jpg" alt="Novell sedang membuat website ulang tahun Jihai" class="creator-img" loading="lazy">
+              <div class="creator-frame-badge">
+                <span class="pulse-dot"></span> LIVE FROM CODING DESK 💻
+              </div>
+            </div>
+            <div class="creator-caption">
+              <span class="creator-name">Novell (Novemas) ✍️</span>
+              <span class="creator-sub">Developer & Ayangmu Selamanya 🫶</span>
+            </div>
+          </div>
+
+          <div class="creator-content-col">
+            <div class="creator-quote-box">
+              <div class="creator-speech-icon">💌</div>
+              <h3 class="creator-msg-title">“Lihat lah pria KYUT ini...”</h3>
+              <p class="creator-text">
+                Aku kerasukan kucing reog ponorogo waktu buat website ini 
+              </p>
+              <p class="creator-text">
+                Semoga kamu suka yahhh....<br> Miau 🐱
+              </p>
+              <div class="creator-signature-row">
+                <span class="creator-sig-tag">Selamat Ulang Tahun ke-18, Jihaikuh! 🌙🎂</span>
+                <div class="creator-btn-actions">
+                  <a href="#creator-video-box" class="btn btn-creator-watch">
+                    <span class="btn-icon">🎥</span> Tonton Video Ucapan
+                  </a>
+                  <button class="btn btn-primary btn-creator-love" id="btn-creator-hug">
+                    <span class="btn-icon">💖</span> Peluk Ayang Novell
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Birthday Video Message from Novell -->
+        <div class="creator-video-card" id="creator-video-box">
+          <div class="creator-video-header">
+            <span class="creator-video-badge">🎬 PESAN VIDEO ULANG TAHUN DARI NOVELL</span>
+            <h3 class="creator-video-title">Ucapan dari akuh hehe🎥💙</h3>
+            <p class="creator-video-desc"> liaten sampai habis wes lek kuat kwkwkwkwkw 🥰✨</p>
+          </div>
+
+          <div class="creator-video-frame-box">
+            <iframe src="https://drive.google.com/file/d/1Rm-6dvc7cpQpTZD64BUVl3Uw0_ZodkJg/preview" 
+                    class="creator-video-iframe" 
+                    allow="autoplay; fullscreen" 
+                    allowfullscreen
+                    title="Video Ucapan Selamat Ulang Tahun Dari Novell"></iframe>
+          </div>
+
+          <div class="creator-video-actions">
+            <a href="https://drive.google.com/file/d/1Rm-6dvc7cpQpTZD64BUVl3Uw0_ZodkJg/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">
+              <span class="btn-icon">🚀</span> Buka Layar Penuh di Google Drive
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== CUTE INTERACTIVE MASCOT (MOCHI CAT) ==================== -->
+  <aside class="mochi-pet" id="mochi-pet" title="Klik aku untuk dengar celotehan lucu!">
+    <div class="speech-bubble" id="mochi-bubble">
+      Meong! Selamat ulang tahun ke-18 Bubub! 🐾🎂
+    </div>
+    <div class="cat-character">
+      <div class="cat-body">
+        <div class="cat-ears">
+          <span class="ear left"></span>
+          <span class="ear right"></span>
+        </div>
+        <div class="cat-face">
+          <span class="cat-eye left"></span>
+          <span class="cat-eye right"></span>
+          <span class="cat-nose">▲</span>
+          <span class="cat-mouth">ω</span>
+          <span class="cat-blush left"></span>
+          <span class="cat-blush right"></span>
+        </div>
+        <div class="cat-paw">🐾</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== LIGHTBOX PHOTO MODAL ==================== -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Tutup foto">&times;</button>
+      <div class="lightbox-image-wrap">
+        <img src="" alt="Preview Foto" id="lightbox-img">
+      </div>
+      <div class="lightbox-details">
+        <h3 id="lightbox-title">Judul Foto</h3>
+        <p id="lightbox-caption">Keterangan foto</p>
+        <div class="lightbox-meta">
+          <span class="lightbox-tag">❤️ Spesial Momen</span>
+          <button class="btn btn-sm btn-primary" id="btn-lightbox-love">Kirim Cinta 💖</button>
+        </div>
+      </div>
+      <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Foto Sebelumnya">&#10094;</button>
+      <button class="lightbox-nav next" id="lightbox-next" aria-label="Foto Selanjutnya">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-heart-anim">💖</div>
+      <p class="footer-main-text">Dibuat dengan sepenuh hati & cinta oleh <strong>Novell</strong> untuk <strong>Jihan (Bubub)</strong></p>
+      <p class="footer-sub-text">Semoga setiap detik di hidupmu dipenuhi tawa dan kebahagiaan sejati ✨</p>
+      <div class="footer-links">
+        <span>© 2026 Novell & Jihai Forever</span>
+        <span>•</span>
+        <a href="#hero" class="back-to-top">Kembali ke Atas ⬆️</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>
