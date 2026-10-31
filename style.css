@@ -85,7 +85,7 @@ body {
   z-index: 1;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 20px 24px 100px;
+  padding: 16px 20px 60px;
 }
 
 /* ==================== STICKY NAVBAR ==================== */
@@ -368,7 +368,7 @@ section[id] {
 .section-header {
   text-align: center;
   max-width: 650px;
-  margin: 70px auto 40px;
+  margin: 38px auto 22px;
 }
 
 .section-pill {
@@ -420,8 +420,7 @@ section[id] {
   padding: 8px 22px;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
-  box-shadow: 0 6px 18px rgba(255, 77, 121, 0.1);
-  animation: floatSoft 3s ease-in-out infinite;
+  box-shadow: 0 4px 14px rgba(255, 77, 121, 0.08);
 }
 
 .hero-title {
@@ -482,15 +481,14 @@ section[id] {
 
 .card-glow-aura {
   position: absolute;
-  top: -18px;
-  left: -18px;
-  right: -18px;
-  bottom: -18px;
-  border-radius: 42px;
-  background: radial-gradient(circle, rgba(255, 77, 121, 0.45) 0%, rgba(255, 209, 102, 0.4) 45%, rgba(189, 160, 232, 0.25) 75%, transparent 100%);
-  filter: blur(28px);
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 40px;
+  background: radial-gradient(circle, rgba(255, 77, 121, 0.22) 0%, rgba(255, 209, 102, 0.15) 50%, transparent 80%);
+  filter: blur(20px);
   z-index: -1;
-  animation: haloSpin 10s linear infinite;
   pointer-events: none;
 }
 
@@ -501,21 +499,12 @@ section[id] {
   transform: translateX(-50%);
   font-size: 2.5rem;
   z-index: 10;
-  filter: drop-shadow(0 4px 12px rgba(255, 183, 3, 0.65));
-  animation: floatSoft 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(255, 183, 3, 0.4));
 }
 
 .card-sparkle {
-  position: absolute;
-  font-size: 1.5rem;
-  z-index: 4;
-  pointer-events: none;
-  animation: sparkleTwinkle 2s ease-in-out infinite alternate;
+  display: none;
 }
-
-.card-sparkle.s1 { top: 18px; left: -14px; animation-delay: 0.2s; }
-.card-sparkle.s2 { top: 45%; right: -16px; animation-delay: 0.8s; }
-.card-sparkle.s3 { bottom: 65px; left: -12px; animation-delay: 1.4s; }
 
 .hero-main-frame {
   position: relative;
@@ -542,15 +531,7 @@ section[id] {
 }
 
 .hero-frame-shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: skewX(-25deg);
-  pointer-events: none;
-  animation: frameShine 6s infinite;
+  display: none;
 }
 
 .hero-ribbon-tag {
@@ -620,11 +601,10 @@ section[id] {
 }
 
 .pill-left {
-  animation: floatSoft 3.5s ease-in-out infinite;
+  /* static grounded position */
 }
 
 .pill-right {
-  animation: floatSoft 3.8s ease-in-out infinite 0.7s;
   cursor: pointer;
 }
 
@@ -1279,58 +1259,35 @@ body.theme-luna .candle-number-18 {
   line-height: 1;
 }
 
-/* ==================== NOSTALGIA FILMSTRIP MARQUEE ==================== */
+/* ==================== NOSTALGIA FILMSTRIP CAROUSEL ==================== */
 .marquee-wrapper {
   width: 100%;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-top: 3px dashed rgba(255, 120, 150, 0.35);
-  border-bottom: 3px dashed rgba(255, 120, 150, 0.35);
-  padding: 16px 0;
-  margin-bottom: 34px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 2px dashed rgba(255, 120, 150, 0.3);
+  border-bottom: 2px dashed rgba(255, 120, 150, 0.3);
+  padding: 16px 14px;
+  margin-bottom: 28px;
   position: relative;
-  box-shadow: 0 8px 24px rgba(255, 77, 121, 0.08);
+  box-shadow: 0 4px 16px rgba(255, 77, 121, 0.06);
   border-radius: var(--radius-md);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 77, 121, 0.3) transparent;
 }
 
 .marquee-wrapper::before,
 .marquee-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.marquee-wrapper::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(255, 240, 245, 0.95), transparent);
-}
-
-.marquee-wrapper::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(255, 240, 245, 0.95), transparent);
+  display: none;
 }
 
 .marquee-track {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   width: max-content;
-  animation: marqueeGlide 36s linear infinite;
-  will-change: transform;
-}
-
-.marquee-wrapper:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes marqueeGlide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  padding: 4px 2px;
 }
 
 .marquee-item {
@@ -1340,10 +1297,11 @@ body.theme-luna .candle-number-18 {
   background: #ffffff;
   padding: 8px 8px 10px;
   border-radius: 6px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   cursor: pointer;
   width: 140px;
   flex-shrink: 0;
+  scroll-snap-align: start;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border: 1px solid rgba(255, 77, 121, 0.15);
 }
@@ -1647,12 +1605,12 @@ body.theme-luna .candle-number-18 {
 
 /* ==================== VIDEO CINEMA & REELS SECTION ==================== */
 .video-section {
-  padding: 40px 0 30px;
+  padding: 16px 0 20px;
 }
 
 .theater-container {
   max-width: 860px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
   width: 100%;
 }
 
@@ -2507,7 +2465,6 @@ body.theme-luna .candle-number-18 {
   margin-bottom: 8px;
   max-width: 220px;
   border: 1.5px solid #ffccd9;
-  animation: floatSoft 2.5s ease-in-out infinite;
   transition: transform var(--transition-fast);
 }
 
@@ -3254,14 +3211,12 @@ body.theme-luna .candle-number-18 {
   top: 14px;
   right: -10px;
   border: 2px solid #fbbf24;
-  animation: floatSoft 2.8s ease-in-out infinite;
 }
 
 .acc-alhaitham {
   bottom: 58px;
   left: -10px;
   border: 2px solid #2dd4bf;
-  animation: floatSoft 3.2s ease-in-out infinite 0.5s;
 }
 
 /* ==================== LUNA'S FAVORITE UNIVERSE SHOWCASE ==================== */
@@ -4346,20 +4301,14 @@ body.gate-active::-webkit-scrollbar {
 .gift-floating-icons .g-icon {
   position: absolute;
   font-size: 1.5rem;
-  animation: floatIcon 3.5s infinite ease-in-out;
   pointer-events: none;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
-.gi-1 { top: -15px; left: 10px; animation-delay: 0s; font-size: 1.7rem; }
-.gi-2 { top: 20px; right: -20px; animation-delay: 0.9s; }
-.gi-3 { bottom: 25px; left: -20px; animation-delay: 1.6s; }
-.gi-4 { bottom: -10px; right: 20px; animation-delay: 2.3s; }
-.gi-5 { top: -25px; right: 30px; animation-delay: 1.2s; }
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(8deg); }
-}
+.gi-1 { top: -15px; left: 10px; font-size: 1.7rem; }
+.gi-2 { top: 20px; right: -20px; }
+.gi-3 { bottom: 25px; left: -20px; }
+.gi-4 { bottom: -10px; right: 20px; }
+.gi-5 { top: -25px; right: 30px; }
 
 .gift-3d-box {
   position: relative;
@@ -4367,16 +4316,10 @@ body.gate-active::-webkit-scrollbar {
   height: 155px;
   margin: 30px auto 0;
   transition: transform 0.3s ease;
-  animation: giftHover 3.2s infinite ease-in-out;
 }
 
 .gate-gift-wrapper:hover .gift-3d-box {
   animation: giftShake 0.6s infinite ease-in-out;
-}
-
-@keyframes giftHover {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 
 @keyframes giftShake {
@@ -4556,13 +4499,6 @@ body.gate-active::-webkit-scrollbar {
 
 .btn-gift-icon {
   font-size: 1.35rem;
-  animation: wiggleGift 1.5s infinite ease-in-out;
-}
-
-@keyframes wiggleGift {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-10deg); }
-  75% { transform: rotate(10deg); }
 }
 
 @keyframes btnPulseGlow {
@@ -4950,7 +4886,7 @@ body.theme-luna .reward-desc {
 
 /* ==================== SPECIAL CREATOR SECTION (FROM NOVELL WITH LOVE) ==================== */
 .creator-section {
-  padding: 50px 0 60px;
+  padding: 24px 0 32px;
   position: relative;
 }
 

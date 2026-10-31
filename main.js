@@ -265,70 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
   }
 
-  // Click on screen produces cute sparkles including Luna, fries & paw
-  document.addEventListener('click', (e) => {
-    // Avoid spawning on input or textarea
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    const emojis = ['💖', '✨', '🌸', '🌙', '⭐', '🐾', '🍟', '🍃', '💙'];
-    const chosen = emojis[Math.floor(Math.random() * emojis.length)];
-    triggerHeartBurst(e.clientX, e.clientY, chosen);
-  });
+  // Global click emoji burst removed to prevent visual jitter and distraction
+  // triggerHeartBurst is retained for purposeful user interactions (button clicks, rewards)
 
-  // ==================== 3. BACKGROUND CANVAS PARTICLE SYSTEM ====================
+  // ==================== 3. BACKGROUND CANVAS ====================
+  // Animated emoji rain removed to prevent distraction, jitter, and excessive CPU usage
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const particles = [];
-    const particleCount = 28;
-    const symbols = ['💖', '🌙', '⭐', '🍟', '🐾', '🍃', '💙', '✨', '🌸'];
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        speedY: Math.random() * 0.6 + 0.3,
-        speedX: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 12 + 14,
-        opacity: Math.random() * 0.45 + 0.25,
-        symbol: symbols[Math.floor(Math.random() * symbols.length)],
-        angle: Math.random() * Math.PI * 2,
-        angularSpeed: (Math.random() - 0.5) * 0.02
-      });
-    }
-
-    function renderCanvas() {
-      ctx.clearRect(0, 0, width, height);
-
-      particles.forEach(p => {
-        p.y -= p.speedY;
-        p.x += Math.sin(p.angle) * 0.5 + p.speedX;
-        p.angle += p.angularSpeed;
-
-        if (p.y < -30) {
-          p.y = height + 30;
-          p.x = Math.random() * width;
-        }
-        if (p.x < -30) p.x = width + 30;
-        if (p.x > width + 30) p.x = -30;
-
-        ctx.save();
-        ctx.globalAlpha = p.opacity;
-        ctx.font = `${p.size}px sans-serif`;
-        ctx.fillText(p.symbol, p.x, p.y);
-        ctx.restore();
-      });
-
-      requestAnimationFrame(renderCanvas);
-    }
-    renderCanvas();
+    canvas.style.display = 'none';
   }
 
   // ==================== 4. MUSIC PLAYER SYSTEM ====================
@@ -464,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (wishRevealCard) {
         wishRevealCard.classList.add('show');
-        wishRevealCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        wishRevealCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
       if (btnBlowCandle) btnBlowCandle.style.display = 'none';
@@ -1043,7 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll to theater player
     const theaterContainer = document.querySelector('.theater-container');
     if (theaterContainer) {
-      theaterContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      theaterContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
@@ -1308,20 +1252,9 @@ document.addEventListener('DOMContentLoaded', () => {
       unlockPageScroll();
       isUnboxing = false;
 
-      // Immediately focus and display Jihai's big photo cleanly on the first page!
-      const heroMainCard = document.getElementById('hero-main-card') || document.getElementById('hero');
-      if (heroMainCard) {
-        heroMainCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        heroMainCard.classList.add('hero-photo-entrance');
-        setTimeout(() => heroMainCard.classList.remove('hero-photo-entrance'), 1800);
-
-        // Celebratory heart burst right on the photo
-        const rect = heroMainCard.getBoundingClientRect();
-        triggerHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 3, '👑');
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 850);
+      // Cleanly scroll to top so the header and hero show smoothly without jarring jumps
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 700);
   }
 
   if (gateGiftBox) {
@@ -1386,7 +1319,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         if (questRewardBanner) {
           questRewardBanner.classList.add('show');
-          questRewardBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          questRewardBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         playFanfareSound();
         launchConfettiCelebration();
